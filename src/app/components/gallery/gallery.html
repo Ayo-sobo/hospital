@@ -1,0 +1,53 @@
+<section class="cmd">
+    <div class="cmd__top-rule"></div>
+
+    <div class="container">
+        <div class="cmd__layout">
+
+            <div class="cmd__body">
+                <h2 class="cmd__heading">From Our CMD</h2>
+
+                <p class="cmd__intro">
+                    SaveALife Mission Hospital is a 200 bedded, ISO-Certified
+                    multi-specialty hospital with clear mission and vision.
+                </p>
+
+                <div class="cmd__sections">
+                    <div class="cmd__section" *ngFor="let s of sections">
+                        <div class="cmd__section-label">{{ s.label }}</div>
+                        <p class="cmd__section-text" *ngFor="let p of s.paragraphs">{{ p }}</p>
+                    </div>
+                </div>
+
+                <div class="cmd__signature">
+                    <img src="assets/signature.png" alt="Dr. Richard Okoye signature" class="cmd__signature-img"
+                        (error)="signatureError = true" *ngIf="!signatureError" />
+                    <span class="cmd__signature-fallback" *ngIf="signatureError">Dr. Richard Okoye</span>
+                </div>
+            </div>
+
+            <div class="cmd__portrait-col">
+                <div class="cmd__portrait-wrap">
+                    <img src="assets/doc.jpeg" alt="Dr. Richard Okoye — CMD, SaveALife Mission Hospital"
+                        class="cmd__portrait" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="emergency">
+    <div class="container">
+        <div class="emergency__content">
+            <h3 class="emergency__title">Emergency hotline</h3>
+
+            <a href="tel:+2348100000851" class="emergency__phone">(+234) 81 000 008 51</a>
+            <a href="tel:+2347044000138" class="emergency__phone">(+234) 70 440 001 38</a>
+
+            <p class="emergency__note">
+                We provide 24/7 customer support. Please feel free to contact us for emergency case.
+            </p>
+        </div>
+    </div>
+</section>

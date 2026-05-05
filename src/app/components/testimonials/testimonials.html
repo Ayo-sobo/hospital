@@ -1,0 +1,76 @@
+<section class="testimonials">
+    <div class="testimonials__bg"></div>
+    <div class="container">
+
+        <div class="testimonials__header">
+            <div class="section-label">Patient Stories</div>
+            <h2 class="section-title">
+                Lives Transformed,<br /><em>Stories Told</em>
+            </h2>
+            <p class="section-subtitle">
+                Real people, real outcomes. Our patients' testimonials speak to the
+                quality of care we deliver every day.
+            </p>
+        </div>
+
+        <div class="testimonials__carousel-wrapper">
+
+            <div class="testimonials__track-outer">
+                <div class="testimonials__track" [style.transform]="'translateX(-' + activeIndex * 100 + '%)'">
+                    <div class="testimonials__slide" *ngFor="let t of testimonials">
+                        <div class="testimonials__card">
+                            <div class="testimonials__image-panel">
+                                <app-testimonial-image-carousel [images]="t.images"
+                                    [title]="t.name"></app-testimonial-image-carousel>
+                            </div>
+
+                            <div class="testimonials__content">
+                                <div class="testimonials__quote-mark">
+                                    <svg width="48" height="36" viewBox="0 0 48 36" fill="currentColor">
+                                        <path
+                                            d="M0 36V22.5C0 10.5 7.5 3 22.5 0l3 4.5C17.25 6 13.5 10.5 12 18H21V36H0zm27 0V22.5C27 10.5 34.5 3 49.5 0l3 4.5C44.25 6 40.5 10.5 39 18H48V36H27z" />
+                                    </svg>
+                                </div>
+
+                                <p class="testimonials__quote">{{ t.quote }}</p>
+
+                                <div class="testimonials__author">
+
+                                    <div class="testimonials__author-info">
+                                        <div class="testimonials__author-name">{{ t.name }}</div>
+                                        <div class="testimonials__author-meta">
+                                            {{ t.procedure }} &bull; {{ t.location }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials__controls">
+                <div class="testimonials__dots">
+                    <button class="testimonials__dot" *ngFor="let t of testimonials; let i = index"
+                        [class.active]="i === activeIndex" (click)="goTo(i)"
+                        [attr.aria-label]="'Go to testimonial ' + (i + 1)"></button>
+                </div>
+                <div class="testimonials__arrows">
+                    <button class="testimonials__arrow" (click)="prev()" aria-label="Previous">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M19 12H5M12 5l-7 7 7 7" />
+                        </svg>
+                    </button>
+                    <button class="testimonials__arrow" (click)="next()" aria-label="Next">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

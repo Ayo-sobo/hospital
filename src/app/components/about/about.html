@@ -1,0 +1,122 @@
+<section class="about">
+    <div class="container">
+
+        <div class="about__header">
+            <div class="about__header-inner">
+                <h2 class="section-title">
+                    Reversing Medical Tourism<br><em>— Towards Africa</em>
+                </h2>
+                <p class="about__lead">
+                    SaveALife Mission Hospital is a 200-bedded, ISO-Certified multi-specialty hospital with a clear
+                    mission:
+                    to bring healthcare of international standards within reach of every individual in Africa.
+                </p>
+            </div>
+        </div>
+
+        <div class="about__rows">
+            <div class="about__row" *ngFor="let h of highlights; let i = index; let odd = odd"
+                [class.about__row--reverse]="odd" (click)="openDialog(h)">
+                <div class="about__row-index">
+                </div>
+
+                <div class="about__row-visual">
+                    <div class="about__collage" [class.about__collage--single]="h.images.length === 1">
+                        <div class="about__collage-main">
+                            <img [src]="h.images[0].src" [alt]="h.images[0].alt" />
+                        </div>
+                        <div class="about__collage-secondary" *ngIf="h.images.length > 1">
+                            <img [src]="h.images[1].src" [alt]="h.images[1].alt" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about__row-content">
+                    <div class="about__row-tag">{{ h.tag }}</div>
+                    <h3 class="about__row-title">{{ h.title }}</h3>
+                    <p class="about__row-excerpt">{{ h.excerpt }}</p>
+                    <button class="about__row-cta">
+                        Full Story
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="about__bottom">
+            <div class="about__badges">
+                <div class="about__badge about__badge--iso">
+                    <div class="about__badge-img">
+                        <img src="assets/iso.png" alt="ISO Certified Logo" />
+                    </div>
+                    <div class="about__badge-text">
+                        <strong>ISO 9001:2015</strong>
+                        <span>Quality Management</span>
+                    </div>
+                </div>
+                <div class="about__badge">
+                    <div class="about__badge-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <path d="M8 21h8M12 17v4" />
+                        </svg>
+                    </div>
+                    <div class="about__badge-text">
+                        <strong>Fully Digitalized</strong>
+                        <span>Smart Hospital Systems</span>
+                    </div>
+                </div>
+                <div class="about__badge">
+                    <div class="about__badge-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg>
+                    </div>
+                    <div class="about__badge-text">
+                        <strong>200-Bed Capacity</strong>
+                        <span>Multi-Specialty Care</span>
+                    </div>
+                </div>
+            </div>
+            <a routerLink="/about" class="btn-primary">
+                Our Full Story
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<div class="about__dialog-backdrop" [class.is-open]="activeDialog" (click)="closeDialog()">
+    <div class="about__dialog" (click)="$event.stopPropagation()" *ngIf="activeDialog">
+        <button class="about__dialog-close" (click)="closeDialog()" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+        </button>
+
+        <div class="about__dialog-images" [class.about__dialog-images--single]="activeDialog.images.length === 1">
+            <div class="about__dialog-img-main">
+                <img [src]="activeDialog.images[0].src" [alt]="activeDialog.images[0].alt" />
+            </div>
+            <div class="about__dialog-img-secondary" *ngIf="activeDialog.images.length > 1">
+                <img [src]="activeDialog.images[1].src" [alt]="activeDialog.images[1].alt" />
+            </div>
+        </div>
+
+        <div class="about__dialog-content">
+            <div class="about__dialog-meta">
+                <span class="about__row-tag">{{ activeDialog.tag }}</span>
+            </div>
+            <h3 class="about__dialog-title">{{ activeDialog.title }}</h3>
+            <p class="about__dialog-body">{{ activeDialog.body }}</p>
+        </div>
+    </div>
+</div>

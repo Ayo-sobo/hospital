@@ -1,0 +1,32 @@
+<div class="tour">
+
+    <section class="tour__hero">
+        <div class="tour__overlay"></div>
+
+        <div class="tour__content">
+            <h1>SaveALife Mission Hospital</h1>
+            <p>Making Nigeria A Global Healthcare Destination</p>
+        </div>
+    </section>
+
+    <section class="tour__section">
+        <h2>Our Hospital</h2>
+
+        <div class="tour__grid">
+            <div class="tour__card" *ngFor="let item of hospitalImages">
+                <img [src]="item.url" alt="hospital image" />
+            </div>
+        </div>
+    </section>
+
+    <section class="tour__section">
+        <h2>Our Equipment</h2>
+
+        <div class="tour__grid">
+            <div class="tour__card" *ngFor="let item of theatreImages">
+                <img [src]="item.url" alt="equipment image" />
+            </div>
+        </div>
+    </section>
+
+</div>

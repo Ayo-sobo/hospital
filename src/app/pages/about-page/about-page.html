@@ -1,0 +1,118 @@
+<div class="about-page">
+    <div class="about-page__hero">
+        <div class="about-page__hero-bg"></div>
+        <div class="container about-page__hero-inner">
+            <div class="section-label">About Us</div>
+            <h1 class="section-title">
+                Pioneering Healthcare<br><em>Across Africa</em>
+            </h1>
+            <p class="section-subtitle">
+                SaveALife Mission Hospital — Africa's first fully digitalized hospital, transforming lives through
+                world-class medical innovation in Nigeria.
+            </p>
+        </div>
+    </div>
+
+    <div class="about-page__hero-gallery">
+        <div class="about-page__hero-main-img">
+            <img src="assets/hall.png" alt="Hospital Main" />
+        </div>
+
+        <div class="about-page__hero-sub-grid">
+            <div class="about-page__hero-sub-img">
+                <img src="assets/Theater.jpg" alt="Hospital View 1" />
+            </div>
+
+            <div class="about-page__hero-sub-img">
+                <img src="assets/theater2.jpg" alt="Hospital View 2" />
+            </div>
+        </div>
+    </div>
+
+    <section class="about-page__mission">
+        <div class="container about-page__mission-inner">
+            <div class="about-page__mission-card">
+                <div class="about-page__mission-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 8v4l3 3" />
+                    </svg>
+                </div>
+                <h3>Our Vision</h3>
+                <p>To make Nigeria a global healthcare destination through world-class services powered by superior
+                    technology, and to become the first fully digitalized hospital in the world.</p>
+            </div>
+            <div class="about-page__mission-card">
+                <div class="about-page__mission-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                </div>
+                <h3>Our Mission</h3>
+                <p>To bring healthcare of international standards within the reach of every individual in Africa — with
+                    expertise, hospitality, and divine healing combined.</p>
+            </div>
+            <div class="about-page__mission-card">
+                <div class="about-page__mission-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                </div>
+                <h3>Our Philosophy</h3>
+                <p>To reverse medical tourism towards Africa through unparalleled world-class healthcare services and
+                    continuous improvement — always striving to better our best.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-page__achievements">
+        <div class="container">
+            <div class="about-page__section-header">
+                <div class="section-label">Milestones</div>
+                <h2 class="section-title">Record-Breaking<br><em>Achievements</em></h2>
+            </div>
+            <div class="about-page__achieve-grid">
+                <div class="about-page__achieve-item" *ngFor="let a of achievements">
+                    <div class="about-page__achieve-check">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3">
+                            <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                    </div>
+                    <span>{{ a.label }}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-page__services">
+        <div class="container">
+            <div class="about-page__section-header">
+                <div class="section-label">Medical Services</div>
+                <h2 class="section-title">Complete Spectrum<br>of <em>Specialties</em></h2>
+            </div>
+            <div class="about-page__services-grid">
+                <div class="about-page__service-item" *ngFor="let s of services">
+                    <div class="about-page__service-dot"></div>
+                    <span>{{ s }}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="about-page__cta">
+        <div class="container">
+            <h2 class="section-title">Experience the Difference.<br><em>Book Today.</em></h2>
+            <p class="section-subtitle">Join thousands of Nigerians and international patients who chose SaveALife — and
+                never looked back.</p>
+            <a routerLink="/appointment" class="btn-primary">
+                Book Your Appointment
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </section>
+</div>

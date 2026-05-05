@@ -1,0 +1,261 @@
+.cmd {
+  --primary: var(--color-primary);
+  --ring: #7ec8e3;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --bg-soft: #f8fafc;
+
+  position: relative;
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 60%, var(--bg-soft) 100%);
+  font-family: var(--font-body);
+  padding: 96px 0 88px;
+
+  &__top-rule {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--primary), rgba(10, 122, 191, 0.4));
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 0 120px;
+    align-items: start;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    max-width: 640px;
+  }
+
+  &__heading {
+    font-size: 2.4rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin: 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 56px;
+      height: 3px;
+      background: var(--primary);
+      margin-top: 12px;
+      border-radius: 2px;
+    }
+  }
+
+  &__intro {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text);
+    max-width: 540px;
+  }
+
+  &__sections {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 8px;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 18px;
+    border-left: 2px solid rgba(10, 122, 191, 0.15);
+  }
+
+  &__section-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary);
+  }
+
+  &__section-text {
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.8;
+
+    & + & {
+      margin-top: 6px;
+    }
+  }
+
+  &__signature {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+  }
+
+  &__signature-img {
+    max-width: 220px;
+    height: auto;
+    filter: grayscale(1) contrast(1.2);
+  }
+
+  &__signature-fallback {
+    font-family: 'Dancing Script', 'Brush Script MT', cursive;
+    font-size: 2.2rem;
+    color: #111;
+  }
+
+  &__portrait-col {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__portrait-wrap {
+    width: 740px;
+    height: 600px;
+    border-radius: 70%;
+    padding: 5px;
+    background: var(--ring);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__portrait {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    background: #fff;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cmd {
+    &__layout {
+      grid-template-columns: 1fr 300px;
+      gap: 0 80px;
+    }
+
+    &__portrait-wrap {
+      width: 300px;
+      height: 300px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .cmd {
+    padding: 72px 0;
+
+    &__layout {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    &__portrait-col {
+      order: -1;
+      justify-content: flex-start;
+    }
+
+    &__portrait-wrap {
+      width: 220px;
+      height: 220px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .cmd {
+    padding: 56px 0;
+
+    &__heading {
+      font-size: 1.7rem;
+    }
+
+    &__intro {
+      font-size: 0.95rem;
+    }
+
+    &__section-text {
+      font-size: 0.9rem;
+    }
+
+    &__portrait-wrap {
+      width: 180px;
+      height: 180px;
+    }
+  }
+}
+
+.emergency {
+  background: #f3f6f9;
+  padding: 100px 0;
+  margin-top: 10px;
+  text-align: center;
+  font-family: var(--font-body);
+
+  &__content {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #dc2626;
+    margin-bottom: 20px;
+  }
+
+  &__phone {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #111;
+    text-decoration: none;
+    margin: 12px 0;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__note {
+    margin-top: 24px;
+    font-size: 1rem;
+    color: #374151;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 600px) {
+  .emergency {
+    padding: 70px 0;
+    margin-top: 80px;
+
+    &__phone {
+      font-size: 1.2rem;
+    }
+
+    &__title {
+      font-size: 1.3rem;
+    }
+  }
+}

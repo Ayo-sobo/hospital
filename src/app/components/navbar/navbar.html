@@ -1,0 +1,34 @@
+<header class="navbar" [class.scrolled]="isScrolled">
+    <div class="container navbar__inner">
+        <a class="navbar__logo" routerLink="/" (click)="closeMobileMenu()">
+            <img src="assets/logo2.png" alt="SaveALife Mission Hospital" class="navbar__logo-img" />
+        </a>
+
+        <nav class="navbar__nav" [class.open]="isMobileMenuOpen">
+            <ul class="navbar__links">
+                <li *ngFor="let link of navLinks">
+                    <a [routerLink]="link.path" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: link.path === '/' }" (click)="closeMobileMenu()">
+                        {{ link.label }}
+                    </a>
+                </li>
+            </ul>
+
+            <button (click)="goToApp()" class="navbar__cta">
+                Get the App
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </button>
+        </nav>
+
+        <button class="navbar__hamburger" (click)="toggleMobileMenu()" [class.open]="isMobileMenuOpen"
+            aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<div class="navbar__overlay" [class.active]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>

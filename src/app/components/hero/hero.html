@@ -1,0 +1,61 @@
+<section class="hero">
+    <div class="hero__bg">
+        <img src="assets/bg.png" alt="SaveALife Hospital" class="hero__bg-img" />
+        <div class="hero__overlay"></div>
+    </div>
+
+    <div class="container hero__inner">
+        <div class="hero__content">
+            <div class="hero__badge">
+                <span class="hero__badge-dot"></span>
+                Africa's First Fully Digitalized Hospital
+            </div>
+
+            <h1 class="hero__title">
+                World-Class <br />
+                Healthcare, <br />
+                <span>Right Here</span> in Nigeria
+            </h1>
+
+            <div class="hero__desc-wrapper">
+                <p class="hero__desc">
+                    Cutting-edge medical technology meets compassionate care. From robotic surgeries to advanced cardiac
+                    interventions — no need to travel abroad.
+                </p>
+            </div>
+
+            <!-- <div class="hero__actions">
+                <a routerLink="/about" class="btn-outline">
+                    Discover More
+                </a>
+            </div> -->
+
+            <div class="hero__app">
+                <p class="hero__app-text">Download <strong>MyHomeClinic App</strong></p>
+
+                <div class="hero__store-buttons">
+                    <a href="https://apps.apple.com/ng/app/my-home-clinic/id1663638197?platform=iphone" target="_blank"
+                        class="store-btn">
+                        <img src="assets/ios.jpeg" alt="App Store" />
+                        <span>App Store</span>
+                    </a>
+
+                    <a href="https://play.google.com/store/apps/details?id=com.drsavealife.myhomeclinic&pcampaignid=web_share"
+                        target="_blank" class="store-btn">
+                        <img src="assets/play.jpeg" alt="Play Store" />
+                        <span>Google Play</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero__stats">
+                @for (stat of stats; track stat.label) {
+                <div class="hero__stat">
+                    <span class="hero__stat-value">{{ stat.value }}</span>
+                    <span class="hero__stat-label">{{ stat.label }}</span>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,74 @@
+<section class="services">
+    <div class="container">
+        <div class="services__header">
+            <div class="section-label">Our Specialties</div>
+            <h2 class="section-title">
+                Pioneering Medical<br><em>Excellence</em> in Africa
+            </h2>
+            <p class="section-subtitle">
+                We bring the most advanced medical procedures to Nigeria — procedures once only available abroad are now
+                at your doorstep.
+            </p>
+        </div>
+
+        <div class="services__grid">
+            <div class="services__card" *ngFor="let service of services">
+                <div class="services__card-top">
+                    <div class="services__icon">
+                        <ng-container [ngSwitch]="service.icon">
+                            <svg *ngSwitchCase="'heart'" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                            <svg *ngSwitchCase="'robot'" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" />
+                                <path d="M12 11V5M8 5h8M9 15h.01M15 15h.01" />
+                                <circle cx="12" cy="3" r="1" />
+                            </svg>
+                            <svg *ngSwitchCase="'kidney'" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M12 2C8 2 5 5 5 9c0 4 3 7 7 7s7-3 7-7c0-4-3-7-7-7z" />
+                                <path d="M12 16v6M9 22h6" />
+                            </svg>
+                            <svg *ngSwitchCase="'baby'" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="5" />
+                                <path d="M12 13v5M8 18h8M3 21c0-3.3 4-6 9-6s9 2.7 9 6" />
+                            </svg>
+                            <svg *ngSwitchCase="'laser'" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v4M6.3 6.3l-2.8-2.8M17.7 6.3l2.8-2.8M4 12H2M22 12h-2" />
+                                <circle cx="12" cy="12" r="4" />
+                                <path d="M12 16v6" />
+                            </svg>
+                            <svg *ngSwitchCase="'emergency'" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                                <line x1="12" y1="9" x2="12" y2="13" />
+                                <line x1="12" y1="17" x2="12.01" y2="17" />
+                            </svg>
+                        </ng-container>
+                    </div>
+                    <span class="services__tag">{{ service.tag }}</span>
+                </div>
+
+                <h3 class="services__card-title">{{ service.title }}</h3>
+                <p class="services__card-desc">{{ service.desc }}</p>
+
+                <div class="services__card-arrow">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="services__cta">
+            <a routerLink="/about" class="btn-outline">View All Services</a>
+        </div> -->
+    </div>
+</section>

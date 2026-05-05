@@ -1,0 +1,93 @@
+<section class="branches-section">
+    <div class="branches-header">
+        <span class="branches-eyebrow">Our Locations</span>
+        <h1 class="branches-title">Visit Our Branches</h1>
+        <p class="branches-subtitle">Find a location near you and get the care you deserve</p>
+    </div>
+
+    <div class="branches-grid">
+        <div class="branch-card" *ngFor="let hosp of hospital_data">
+            <div class="card-image-wrap">
+                <img [src]="hosp.hospitalImage" alt="{{ hosp.location }}" class="card-image" />
+                <div class="card-image-overlay"></div>
+                <span class="location-badge">{{ hosp.location }}</span>
+            </div>
+
+            <div class="card-body">
+                <p class="card-address">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    {{ hosp.address }}
+                </p>
+
+                <div class="card-actions">
+                    <a [href]="'tel:' + hosp.phone_number" class="btn-action btn-call">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.61a16 16 0 0 0 6 6l1.27-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        Call
+                    </a>
+
+                    <button type="button" class="btn-action btn-directions" (click)="openMap(hosp)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                        </svg>
+                        Directions
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="map-overlay" *ngIf="selectedHospital" (click)="closeMap($event)">
+    <div class="map-modal">
+        <button class="modal-close" (click)="closeMap($event)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+        </button>
+
+        <iframe [src]="getSafeUrl(selectedHospital.location_src)" width="100%" height="100%" frameborder="0"
+            scrolling="no" allowfullscreen></iframe>
+
+        <div class="modal-info">
+            <div class="modal-text">
+                <p class="modal-address">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    {{ selectedHospital.address }}
+                </p>
+
+                <p class="modal-phone">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.61a16 16 0 0 0 6 6l1.27-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    {{ selectedHospital.phone_number }}
+                </p>
+            </div>
+
+            <a [href]="'tel:' + selectedHospital.phone_number" class="btn-action btn-directions modal-call">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.61a16 16 0 0 0 6 6l1.27-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                Call Now
+            </a>
+        </div>
+    </div>
+</div>

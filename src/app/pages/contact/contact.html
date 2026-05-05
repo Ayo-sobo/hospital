@@ -1,0 +1,56 @@
+<section class="section page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 m-auto p-5">
+                <h1>Contact Us</h1>
+                <p>38-44 Uyo Street, Off Stadium Rd. Rumuomasi, Port Harcourt.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-form section" style="padding-bottom: 5%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="mb-5 text-center">Drop us a mail or Call Us</h2>
+
+                <div class="contact-info">
+                    <a href="tel:+2348100000651">+234 810 000 0651</a>
+                    <a href="tel:+2348100000851">+234 810 000 0851</a>
+                    <a href="mailto:info@savealifehospital.com">info@savealifehospital.com</a>
+                    <a href="https://www.savealifehospital.com" target="_blank">
+                        www.savealifehospital.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div>
+                        <input [(ngModel)]="data.senderName" class="form-control main" placeholder="Name" />
+                    </div>
+
+                    <div>
+                        <input [(ngModel)]="data.receipient" class="form-control main" type="email"
+                            placeholder="Email" />
+                    </div>
+
+                    <div class="full">
+                        <input [(ngModel)]="data.subject" class="form-control main" placeholder="Subject" />
+                    </div>
+
+                    <div class="full">
+                        <textarea [(ngModel)]="data.body" class="form-control main" placeholder="Message"></textarea>
+                    </div>
+
+                    <div class="submit-wrapper">
+                        <button (click)="postData()" class="btn btn-main-md">
+                            Send Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

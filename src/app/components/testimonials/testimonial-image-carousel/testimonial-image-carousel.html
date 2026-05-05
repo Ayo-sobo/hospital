@@ -1,0 +1,24 @@
+<div class="img-carousel">
+    <div class="img-carousel__track">
+        <div class="img-carousel__slide" *ngFor="let img of images; let i = index" [class.active]="i === currentIndex">
+            <img [src]="img" [alt]="title" />
+        </div>
+    </div>
+
+    <ng-container *ngIf="images.length > 1">
+        <button class="img-carousel__btn img-carousel__btn--prev" (click)="prev()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M19 12H5M12 5l-7 7 7 7" />
+            </svg>
+        </button>
+        <button class="img-carousel__btn img-carousel__btn--next" (click)="next()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+        </button>
+        <div class="img-carousel__dots">
+            <button class="img-carousel__dot" *ngFor="let img of images; let i = index"
+                [class.active]="i === currentIndex" (click)="goTo(i)"></button>
+        </div>
+    </ng-container>
+</div>
