@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
     { label: 'About', path: '/about' },
     { label: 'Gallery', path: '/gallery' },
     { label: 'Take a Tour', path: '/tour' },
+    { label: 'Our Store', path: '/store' },
     { label: 'Contact Us', path: '/contact' },
   ];
 
@@ -37,25 +38,6 @@ export class NavbarComponent implements OnInit {
   }
 
   goToApp() {
-    // const userAgent = navigator.userAgent || navigator.vendor;
-
-    // if (/android/i.test(userAgent)) {
-    //   window.open(
-    //     'https://play.google.com/store/apps/details?id=com.drsavealife.myhomeclinic&pcampaignid=web_share',
-    //     '_blank',
-    //   );
-    // } else if (/iPad|iPhone|iPod/.test(userAgent)) {
-    //   window.open(
-    //     'https://apps.apple.com/ng/app/my-home-clinic/id1663638197?platform=iphone',
-    //     '_blank',
-    //   );
-    // } else {
-    //   window.open(
-    //     'https://play.google.com/store/apps/details?id=com.drsavealife.myhomeclinic&pcampaignid=web_share',
-    //     '_blank',
-    //   );
-    // }
-
     window.open('https://drsavealife.com/authentication/landing', '_blank');
     this.closeMobileMenu();
   }

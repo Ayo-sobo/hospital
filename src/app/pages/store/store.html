@@ -1,0 +1,47 @@
+<div class="store-wrapper">
+    <!-- <div class="store-toolbar">
+        <span class="store-toolbar__label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 01-8 0" />
+            </svg>
+            Our Store
+        </span>
+        <button class="store-toolbar__external" (click)="openExternal()" title="Open in new tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+            Open in new tab
+        </button>
+    </div> -->
+
+    <div class="store-frame-container">
+        <div class="store-loader" *ngIf="isLoading && !hasError">
+            <div class="store-loader__spinner"></div>
+            <p>Loading store...</p>
+        </div>
+
+        <div class="store-error" *ngIf="hasError">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 01-8 0" />
+            </svg>
+            <h3>Store Unavailable</h3>
+            <p>The store couldn't load in this view. Open it directly to continue shopping.</p>
+            <button (click)="openExternal()">
+                Visit Store
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+
+        <iframe *ngIf="!hasError" [src]="storeUrl | safeUrl" class="store-frame"
+            [class.store-frame--loaded]="!isLoading" title="SaveALife iCare Store" (load)="onIframeLoad()"
+            (error)="onIframeError()" allow="payment; camera; microphone" loading="lazy"></iframe>
+    </div>
+</div>
